@@ -1,9 +1,9 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return '<h1>The world is yours!</h1>'
+@app.route('/profile/<username>')
+def profile(username):
+    return "The Profile Section %s" % username
 
 if __name__ == '__main__':
     app.run(debug=True)
