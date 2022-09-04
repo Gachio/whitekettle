@@ -1,15 +1,16 @@
 #!/usr/bin/env/ python
+import os
 
 from flask import Flask
 from flask_script import Manager
 
-app = Flask(__name__)
+myapp = Flask(__name__, instance_relative_config=True)
 
-@app.route('/profile/<username>')
+@myapp.route('/profile/<username>')
 def profile(username):
     return "The Profile Section %s" % username
 
-manager = Manager(app)
+manager = Manager(myapp)
 
 if __name__ == '__main__':
     #app.run(debug=True)
